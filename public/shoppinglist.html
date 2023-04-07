@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jérémy Caron-Labalette</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="icon" type="image/gif" href="../public/assets/j.png" />
+
+
+    <script async type="text/javascript" src="scripts/animation.js"></script>
+    <script async type="text/javascript" src="scripts/script.js"></script>
+
+    <!-- <style>* {text-align: center;}</style> -->
+
+</head>
+
+<body>
+    <canvas id="animation_bg" style="position:absolute; height: 100%;width: 100%;"></canvas>
+    
+    <nav class="navbar is-dark is-fixed-top">
+        <div class="navbar-brand">
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <!-- Ajout du bouton de retour -->
+                <a class="navbar-item" onclick="goBack()">
+                    <span class="icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                    <span>Retour</span>
+                </a>
+                <a class="navbar-item">
+                    <span><h3>Shopping List</h3></span>
+                </a>
+                <a class="navbar-item" onclick="toggleNightMod()">
+                    <span class="icon">
+                        <i id="nightIcon" class="fas fa-info"></i>
+                    </span>
+                    <span id="nightButtonText">Mode nuit</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero is-fullheight is-fullheight-with-navbar">
+        
+        <div class="hero-body">
+            <div class="container">
+                <div class="has-text-centered">
+                    <h3 class="title is-3">ShoppingList</h3>
+                </div>
+                <h4 class="title is-4">Description</h4>
+                <p>Application mobile qui permet de creer une liste de course en ajoutant des produits directement dans un input.
+
+                    Cette application mobile, réalisé lors de mon BTS à proméo Compiègne en octobre 2022, 
+                    permet de se creer un compte et de creer une liste de course en ajoutant des produits directement dans un input,
+                    avec la possibilité de dire la quantité qu'il nous faut, de dire si le produit est acheté ou pas et de le supprimer. 
+                    ShoppingList m'a contacté afin de creer cette application qui pourrait permettre a des milliers d'utilisateurs d'avoir une liste de course pratique et simple d'utilisation.
+                </p>
+            </br>    
+                <h4 class="title is-4">Technologies utilisées</h4>
+                <ul>
+                    <li><p>Ionic</p></li>
+                    <li><p>Angular</p></li>
+                </ul>
+            </br>
+                <h4 class="title is-4">Date</h4>
+                <p>2022</p>
+            </br>
+            <div class="buttons is-centered">
+                <a href="http://localhost:8100/landing" target="_blank" class="button is-dark">
+                    <span>Voir le projet</span>
+                </a>
+                <a href="https://github.com/Misokka/ShoppingList" target="_blank" class="button is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Github</span>
+                </a>
+            </div>
+            
+        </div>
+        
+    </section>
+</body>
+
+<script>
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

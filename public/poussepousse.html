@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jérémy Caron-Labalette</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="icon" type="image/gif" href="../public/assets/j.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+
+
+    <script async type="text/javascript" src="scripts/animation.js"></script>
+    <script async type="text/javascript" src="scripts/script.js"></script>
+
+    <!-- <style>* {text-align: center;}</style> -->
+
+</head>
+
+<body>
+    <canvas id="animation_bg" style="position:absolute; height: 100%;width: 100%;"></canvas>
+    
+    <nav class="navbar is-dark is-fixed-top">
+        <div class="navbar-brand">
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" onclick="goBack()">
+                    <span class="icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                    <span>Retour</span>
+                </a>
+                <a class="navbar-item">
+                    <span><h3>PoussePousse</h3></span>
+                </a>
+                <a class="navbar-item" onclick="toggleNightMod()">
+                    <span class="icon">
+                        <i id="nightIcon" class="fas fa-info"></i>
+                    </span>
+                    <span id="nightButtonText">Mode nuit</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <section class="hero is-fullheight is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container">
+                <div class="has-text-centered">
+                    <h3 class="title is-3">Jeu du PoussePousse</h3>
+                </div>
+                <h4 class="title is-4">Description</h4>
+                <p>Le principe du jeu du pousse-pousse est un rectangle ou un carré dans lequel se trouvent des chiffres,
+                    une des cases est vide et joueur contrôle uniquement la case vide et peut se déplacer de gauche à droite,
+                    de haut en bas une case à la fois.
+                    Le jeu vise à mettre dans l'ordre les chiffres de 1 à X et de mettre la case vide tout en bas à droite du plateau pour ne pas caser la suite de chiffres.</p>
+            </br>
+                <h4 class="title is-4">Technologies utilisées</h4>
+                <ul>
+                    <li><p>Python</p></li>
+                </ul> 
+            </br>
+                <h4 class="title is-4">Date</h4>
+                <p>2022</hp>
+            </br>
+            <div class="container">
+				<!-- Start Carousel -->
+				<div id="carousel-demo" class="carousel">
+					<div class="item-1">
+						<!-- Slide Content -->
+					</div>
+					<div class="item-2">
+						<!-- Slide Content -->
+					</div>
+					<div class="item-3">
+						<!-- Slide Content -->
+					</div>
+				</div>
+				<!-- End Carousel -->
+			</div>
+            <div class="buttons is-centered">
+                <a target="_blank" href="https://127.0.0.1:8000" class="button is-dark">
+                    <span>Voir le projet</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+		<script>
+		bulmaCarousel.attach('#carousel-demo', {
+			slidesToScroll: 1,
+			slidesToShow: 4
+		});
+		</script>
+</body>
+
+<script>
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

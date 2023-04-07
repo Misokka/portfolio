@@ -1,0 +1,180 @@
+html {
+  scroll-behavior: smooth;
+  overflow: initial ! important;
+
+}
+
+
+.has-same-height .card {
+  height: 320px !important;
+
+}
+
+#img-container-php {
+  margin-right: 5px;
+}
+
+#margin-block {
+  margin-top: -7%;
+}
+
+#jeremy {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+#container-php {
+  display: flex;
+  text-align: center;
+  width: 17%;
+  margin: auto;
+}
+
+#width-container {
+  width: 100%;
+}
+
+.round-image-container {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* #php {
+    margin-left: 20px;
+  } */
+
+#imgdesmarez {
+  object-fit: contain !important;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-content h3 {
+  text-align: center;
+}
+
+.table-profile td,
+th {
+  border: none !important;
+}
+
+.table-profile td:first-of-type {
+  font-weight: bold;
+}
+
+.skills-content .media {
+  margin: 0 !important;
+  padding: 4px !important;
+  border: 0 !important;
+}
+
+.skills-content .progress {
+  height: 4px !important;
+}
+
+.custom-tags {
+  text-align: center !important;
+  display: block;
+}
+
+.portfolio-container .card {
+  margin-bottom: 2em;
+
+}
+
+
+.section-heading {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 6em;
+  width: 100%;
+}
+
+
+.content p {
+  text-align: center;
+}
+
+
+.dark-background {
+  height: 100%;
+  background-color: rgb(17, 17, 17) !important;
+}
+
+
+
+.dark-background .modal-card {
+  background-color: rgb(17, 17, 17) !important;
+  box-shadow: 0 0.5em 1em -0.125em rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.dark-background .box,
+.dark-background .card,
+.dark-background .footer,
+.dark-background .modal-card-head,
+.dark-background .modal-card-foot,
+.dark-background .modal-card-body {
+  background-color: rgb(60, 60, 60) !important;
+  box-shadow: 0 0.5em 1em -0.125em rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.dark-background .input,
+.dark-background .textarea {
+  color: white !important;
+  background-color: rgb(0, 0, 0) !important;
+  box-shadow: 0 0.5em 1em -0.125em rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.dark-background .container {
+  color: white !important;
+}
+
+.dark-background .modal-card-title {
+  color: white !important;
+}
+
+.dark-background .label {
+  color: white !important;
+}
+
+.dark-background h2,
+.dark-background h3,
+.dark-background h4,
+.dark-background h5 {
+  color: white !important;
+}
+
+.dark-background .content {
+  color: white !important;
+}
+
+.dark-background .card-content {
+  color: white !important;
+}
+
+.dark-background .card-header-title {
+  color: white !important;
+}
+
+.dark-background .title {
+  color: white !important;
+}
+
+.dark-background .subtitle {
+  color: white !important;
+}
+
+.navbar-menu {
+  background-color: inherit !important;
+}
+
+.card-footer-item.button.night-mode {
+  background-color: #363636;
+  color: #ffffff;
+}

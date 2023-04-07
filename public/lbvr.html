@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jérémy Caron-Labalette</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="icon" type="image/gif" href="../public/assets/j.png" />
+
+    <script async type="text/javascript" src="scripts/animation.js"></script>
+    <script async type="text/javascript" src="scripts/script.js"></script>
+
+    <script async type="text/javascript" src="scripts/nightmode.js"></script>
+
+    <style>
+        .carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  width: 100%;
+  height: 300px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-button.left {
+  left: 1rem;
+}
+
+.carousel-button.right {
+  right: 1rem;
+}
+    </style>
+</head>
+
+
+<body>
+    <canvas id="animation_bg" style="position:absolute; height: 100%;width: 100%;"></canvas>
+    
+    <nav class="navbar is-dark is-fixed-top">
+        <div class="navbar-brand">
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" onclick="goBack()">
+                    <span class="icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </span>
+                    <span>Retour</span>
+                </a>
+                <a class="navbar-item">
+                    <span><h3>Le Barman Vous Recrute</h3></span>
+                </a>
+                <a class="navbar-item" onclick="toggleNightMod()">
+                    <span class="icon">
+                        <i id="nightIcon" class="fas fa-info"></i>
+                    </span>
+                    <span id="nightButtonText">Mode nuit</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    </br>
+    <section class="hero is-fullheight is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container">
+                <div class="has-text-centered">
+                    <h3 class="title is-3">Le Barman Vous Recrute</h3>
+                </div>
+
+                <h4 class="title is-4">Description</h4>
+                <p>C'est un site web qui permet de trouver un travail dans le domaine du CHR (café, hotel, restaurant). 
+                    Le site manquait d'un espace candidat, j'ai donc conçue cet espace durant la période que j'ai passé en entreprise entre septembre 2021 et mai 2022.
+                    
+                    
+                    Site web qui permet de trouver un travail dans le domaine du CHR (café, hotel, restaurant). Le site manquait d'un espace candidat, j'ai donc conçue cet espace.</p>
+            </br>
+                <h4 class="title is-4">Technologies utilisées</h4>
+                <ul>
+                    <li><p>Symfony</p></li>
+                </ul>
+            </br>
+                <h4 class="title is-4">Date</h4>
+                <p>2021-2022</p>
+            </br>  
+            <div class="has-text-centered">
+                <h4 class="title is-4">Illustration en images</h4>
+            </div>
+        </br>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                <img src="../public/assets/lbvr/accueil.PNG" alt="">
+                <img src="../public/assets/lbvr/candidature.PNG" alt="">
+                <img src="../public/assets/lbvr/etab.PNG" alt="">
+                <img src="../public/assets/lbvr/moncomptetab.PNG" alt="">
+                <img src="../public/assets/lbvr/comptecandidat.png" alt="">
+                <img src="../public/assets/lbvr/makecv.PNG" alt="">
+                <img src="../public/assets/lbvr/cv.PNG" alt="">
+                <img src="../public/assets/lbvr/makecv.PNG" alt="">
+                </div>
+                <span class="carousel-button left" onclick="scrollCarousel(-1)"><i class="fas fa-chevron-left"></i></span>
+                <span class="carousel-button right" onclick="scrollCarousel(1)"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            </br>
+            <div class="buttons is-centered">
+                <a target="_blank" href="https://127.0.0.1:8000" class="button is-dark">
+                    <span>Voir le projet</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+
+let carouselIndex = 0;
+  const carouselSlide = document.querySelector('.carousel-slide');
+
+  function scrollCarousel(direction) {
+    carouselIndex += direction;
+    const carouselImages = carouselSlide.querySelectorAll('img');
+    const carouselLength = carouselImages.length;
+
+    if (carouselIndex < 0) {
+      carouselIndex = carouselLength - 1;
+    } else if (carouselIndex >= carouselLength) {
+      carouselIndex = 0;
+    }
+
+    carouselSlide.scrollTo({
+      left: carouselImages[carouselIndex].offsetLeft,
+      behavior: 'smooth',
+    });
+  }
+
+  function goBack() {
+    window.history.back();
+  }
+
+
+</script>

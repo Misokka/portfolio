@@ -1,0 +1,941 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+</head>
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+	* {
+		font-family: 'Poppins', sans-serif !important;
+
+	}
+</style>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#">La France</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+				aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#france">La France:
+							géographie en nombre</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#regionsRef">Régions</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#departRef">Départements</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#communesRef">Communes</a></li>
+
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+
+
+
+		<div style="height:10%"></div>
+		<div class="tab-content">
+
+
+
+
+
+
+			<div id="france" class="tab-pane fade active show">
+				<h2> Découvre ton pays ! :) </h2>
+				<h4> La France en nombre ! </h4>
+				<h6> Nombre d'habitants par régions </h6>
+				<div class="row">
+					<table class="col-lg-4 col-xl-4 col-md-4" id="laFraEnNbr">
+						<tr>
+							<th>Région</th>
+							<th>Habitans</th>
+						</tr>
+					</table>
+					<div class="col-lg-4 col-xl-4 col-md-4">
+						<canvas id="canvas" width="300" height="300"></canvas>
+					</div>
+
+					<table class="col-lg-4 col-xl-4 col-md-4" id="franceInfos">
+						<tr>
+							<th>Infos</th>
+							<th>Nombres</th>
+						</tr>
+					</table>
+
+				</div>
+
+
+
+
+			</div>
+			<div id="regionsRef" class="tab-pane fade">
+				<h4> Régions </h4>
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#perNameRegion" role="tab"
+							aria-controls="home" aria-selected="true">Rechercher par nom</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#perInfRegion" role="tab"
+							aria-controls="profile" aria-selected="false">Rechercher par nombre d'habitants inférieur
+							à</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="contact-tab" data-toggle="tab" href="#perSuppRegion" role="tab"
+							aria-controls="contact" aria-selected="false">Rechercher par nombre d'habitants supérieur
+							à</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="perNameRegion" role="tabpanel"
+						aria-labelledby="home-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchRegion()" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="regionSearchBar" class="form-control my-0 py-1" type="text"
+								placeholder="Recherche une région..." aria-label="Search">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="perInfRegion" role="tabpanel" aria-labelledby="profile-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchRegion('inf')" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="regionSearchBarInf" class="form-control my-0 py-1" type="number" min="0"
+								placeholder="Votre nombre" aria-label="Search">
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="perSuppRegion" role="tabpanel" aria-labelledby="contact-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchRegion('sup')" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="regionSearchBarSup" class="form-control my-0 py-1" type="number" min="0"
+								placeholder="Votre nombre" aria-label="Search">
+						</div>
+					</div>
+				</div>
+				<ul id="listeSeRegion" class="list-group list-group-flush">
+					<li class="list-group-item list-group-item-action ">Une fois ta recherche écrite</li>
+					<li class="list-group-item list-group-item-action ">tu peux appuyer sur la loupe</li>
+					<li class="list-group-item list-group-item-action ">clique ensuite sur l'élément pour voir les
+						détails !</li>
+				</ul>
+			</div>
+			<div id="regionsDetails" class="tab-pane fade">
+				<h2 id="nameRegionTitle"> #NAMEREGION </h2>
+				<table class="table">
+					<thead>
+						<tr>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Numéro de la region</td>
+							<td id="numRegionRegion">XX</td>
+						</tr>
+						<tr>
+							<td>Nombre de départements</td>
+							<td id="nbrDepart">XX</td>
+						</tr>
+						<tr>
+							<td>Nombre d'habitants dans la région</td>
+							<td id="nbrHabitantRegion">XX</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3> Listes des départements </h3>
+				<ul id="listeDepartRegion" class="list-group list-group-flush">
+					<a data-toggle="tab" href="#departDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+					<a data-toggle="tab" href="#departDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+					<a data-toggle="tab" href="#departDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+					<a data-toggle="tab" href="#departDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+				</ul>
+			</div>
+			<div id="departRef" class="tab-pane fade">
+				<h4> Départements </h4>
+
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#perNameDepart" role="tab"
+							aria-controls="home" aria-selected="true">Rechercher par nom</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#perInfDepart" role="tab"
+							aria-controls="profile" aria-selected="false">Rechercher par nombre d'habitants inférieur
+							à</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="contact-tab" data-toggle="tab" href="#perSuppDepart" role="tab"
+							aria-controls="contact" aria-selected="false">Rechercher par nombre d'habitants supérieur
+							à</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="perNameDepart" role="tabpanel"
+						aria-labelledby="home-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchDepar()" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="departSearchBar" class="form-control my-0 py-1" type="text"
+								placeholder="Recherche un département..." aria-label="Search">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="perInfDepart" role="tabpanel" aria-labelledby="profile-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchDepar('inf')" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="departSearchBarInf" class="form-control my-0 py-1" type="number" min="0"
+								placeholder="Votre nombre" aria-label="Search">
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="perSuppDepart" role="tabpanel" aria-labelledby="contact-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchDepar('sup')" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="departSearchBarSup" class="form-control my-0 py-1" type="number" min="0"
+								placeholder="Votre nombre" aria-label="Search">
+						</div>
+					</div>
+				</div>
+				<ul id="listeSeDepart" class="list-group list-group-flush">
+					<li class="list-group-item list-group-item-action ">Une fois ta recherche écrite</li>
+					<li class="list-group-item list-group-item-action ">tu peux appuyer sur la loupe</li>
+					<li class="list-group-item list-group-item-action ">clique ensuite sur l'élément pour voir les
+						détails !</li>
+				</ul>
+			</div>
+			<div id="departDetails" class="tab-pane fade">
+				<h2 id="nameDeparTitle"> #NAMEDEPART </h2>
+				<table class="table">
+					<thead>
+						<tr>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Numéro du départements</td>
+							<td id="numDepartDepart">XX</td>
+						</tr>
+						<tr>
+							<td>Nombre de communes</td>
+							<td id="nbrCommunesDeparts">XX</td>
+						</tr>
+						<tr>
+							<td>Nombre d'habitants dans le départements</td>
+							<td id="nbrHabitDepart">XX</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3> Listes des communes </h3>
+				<ul id="listeCommuDepart" class="list-group list-group-flush">
+					<a data-toggle="tab" href="#communesDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+					<a data-toggle="tab" href="#communesDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+					<a data-toggle="tab" href="#communesDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+					<a data-toggle="tab" href="#communesDetails" class="list-group-item list-group-item-action ">Cras
+						justo odio</a>
+				</ul>
+			</div>
+			<div id="communesRef" class="tab-pane fade">
+				<h4> Communes </h4>
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#perNameCommu" role="tab"
+							aria-controls="home" aria-selected="true">Rechercher par nom</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#perInfCommu" role="tab"
+							aria-controls="profile" aria-selected="false">Rechercher par nombre d'habitants inférieur
+							à</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="contact-tab" data-toggle="tab" href="#perSuppCommu" role="tab"
+							aria-controls="contact" aria-selected="false">Rechercher par nombre d'habitants supérieur
+							à</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="perNameCommu" role="tabpanel" aria-labelledby="home-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchCommu()" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="commuSearchBar" class="form-control my-0 py-1" type="text"
+								placeholder="Recherche une ville..." aria-label="Search">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="perInfCommu" role="tabpanel" aria-labelledby="profile-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchCommu('inf')" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="commuSearchBarInf" class="form-control my-0 py-1" type="number" min="0"
+								placeholder="Votre nombre" aria-label="Search">
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="perSuppCommu" role="tabpanel" aria-labelledby="contact-tab">
+						<div class="input-group md-form form-sm form-1 pl-0">
+							<div class="input-group-prepend">
+								<button onclick="searchCommu('sup')" class="input-group-text cyan lighten-2"
+									id="basic-text1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-search" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+									</svg>
+								</button>
+							</div>
+							<input id="commuSearchBarSup" class="form-control my-0 py-1" type="number" min="0"
+								placeholder="Votre nombre" aria-label="Search">
+						</div>
+					</div>
+				</div>
+				<ul id="listeSeCommu" class="list-group list-group-flush">
+					<li class="list-group-item list-group-item-action ">Une fois ta recherche écrite</li>
+					<li class="list-group-item list-group-item-action ">tu peux appuyer sur la loupe</li>
+					<li class="list-group-item list-group-item-action ">clique ensuite sur l'élément pour voir les
+						détails !</li>
+				</ul>
+			</div>
+			<div id="communesDetails" class="tab-pane fade">
+				<h2 id="nameCommuTitle"> #NAMECOMMUNE </h2>
+				<table class="table">
+					<thead>
+						<tr>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Codes postaux</td>
+							<td id="codePostauxCommu">XX</td>
+						</tr>
+						<tr>
+							<td>Numéro du départements</td>
+							<td id="numDepartCommu">XX</td>
+						</tr>
+						<tr>
+							<td>Nom du départements</td>
+							<td id="nameDepartCommu">XX</td>
+						</tr>
+						<tr>
+							<td>Numéro de la région</td>
+							<td id="numRegionCommu">XX</td>
+						</tr>
+						<tr>
+							<td>Nom de la région</td>
+							<td id="nameRegionCommu">XX</td>
+						</tr>
+						<tr>
+							<td>Nombre d'habitants</td>
+							<td id="nbrHabitantCommu">XX</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		// script de l'introduction			       		 			  
+		var i = 0;
+		var txt = $("#intro").html();
+		var speed = 45;
+
+		//typeWriter();			       		 			  
+		//$("#intro").html("");			       		 			  
+		async function typeWriter() {
+			if (i < txt.length) {
+				document.getElementById("intro").innerHTML += txt.charAt(i);
+				i++;
+				setTimeout(typeWriter, speed);
+			}
+			else {
+				setTimeout(initIntro, 5000);
+			}
+		}
+
+		async function initIntro() {
+			i = 0;
+			$("#intro").html("");
+			typeWriter();
+		}			       		 			  
+	</script>
+
+
+	<script>
+		// script de la partie france			       		 			  
+
+		var listeRegion = new Array();
+		var listeDepartement = new Array();
+		var listeCommune = new Array();
+		var okay = false;
+
+		var nbrHabRegionsDict = new Map();
+		var nbrDepartRegionsDict = new Map();
+
+		var nbrHabDepartDict = new Map();
+		var nbrCommuDepartDict = new Map();
+
+		var defaultContentListes = undefined;
+
+
+		let begin = setInterval(function () {
+			if (listeRegion.length > 0) {
+				clearInterval(begin);
+				loadFranceData();
+			}
+		}, 300);
+
+		async function loadFranceData() {
+
+			if (defaultContentListes === undefined) {
+				defaultContentListes = $("#listeSeRegion").html();
+			}
+			nbrHabDepartDict = new Map();
+			nbrCommuDepartDict = new Map();
+
+			$("#laFraEnNbr").html("");
+			$("#listeSeRegion").html(defaultContentListes);
+			$("#listeDepart").html(defaultContentListes);
+			$("#listeSeCommu").html(defaultContentListes);
+			$("#laFraEnNbr").append(`<tr> <th>Région</th><th>Habitans</th> </tr>`);
+			listeRegion.forEach(async function (item) {
+				var id = "region" + item.code;
+				$("#laFraEnNbr").append(`<tr><td>${item.nom}</td>  <td id=${id}>0</td>  </tr>`);
+
+			});
+			listeRegion.forEach(async function (item) {
+				var id = "region" + item.code;
+				getNumOfHabDepFromReg(item.code);
+				var checkExist = setInterval(function () {
+
+					$(`#${id}`).text(numberWithSpaces(nbrHabRegionsDict[item.code]));
+
+				}, 100);
+
+			});
+			setTimeout(drawPieChart, 1200);
+			setTimeout(getInfosGe, 1200);
+
+		}
+
+		function getInfosGe() {
+			var numDepart = numberWithSpaces(listeDepartement.length);
+			var numRegion = numberWithSpaces(listeRegion.length);
+			var nbrCommu = numberWithSpaces(listeCommune.length);
+			var nbrHabitant = 0;
+			Object.keys(nbrHabDepartDict).forEach(function (key) {
+				if (isNaN(nbrHabDepartDict[key])) {
+
+					nbrHabitant += 0;
+				}
+				else {
+					nbrHabitant += nbrHabDepartDict[key];
+				}
+			});
+			nbrHabitant = numberWithSpaces(nbrHabitant);
+
+			$("#franceInfos").append(`<tr><td>Nombre de régions</td>  <td>${numRegion}</td>  </tr>`);
+			$("#franceInfos").append(`<tr><td>Nombre de départements</td>  <td>${numDepart}</td>  </tr>`);
+			$("#franceInfos").append(`<tr><td>Nombre de communes</td>  <td>${nbrCommu}</td>  </tr>`);
+			$("#franceInfos").append(`<tr><td>Nombre d'habitants</td>  <td>${nbrHabitant}</td>  </tr>`);
+
+		}
+
+		function numberWithSpaces(x) {
+			if (x === undefined) {
+				return 0;
+			}
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		}
+
+		function drawPieChart() {
+			var data_table = document.getElementById('laFraEnNbr');
+			var canvas = document.getElementById('canvas');
+			var td_index = 1;
+
+			var tds, data = [], color, colors = [], value = 0, total = 0;
+			var trs = data_table.getElementsByTagName('tr');
+			for (var i = 0; i < trs.length; i++) {
+				tds = trs[i].getElementsByTagName('td');
+
+				if (tds.length === 0) continue;
+				if (tds[td_index].innerHTML === "NaN") {
+					value = 0;
+				} else {
+					var temp = tds[td_index].innerHTML.replaceAll(" ", '')
+					value = parseFloat(temp);
+				}
+				data[data.length] = value;
+				total += value;
+
+
+				color = getColor();
+				colors[colors.length] = color;
+				trs[i].style.backgroundColor = color;
+			}
+
+			if (typeof canvas.getContext === 'undefined') {
+				return;
+			}
+
+			var ctx = canvas.getContext('2d');
+			var canvas_size = [canvas.width, canvas.height];
+			var radius = Math.min(canvas_size[0], canvas_size[1]) / 2;
+			var center = [canvas_size[0] / 2, canvas_size[1] / 2];
+			var sofar = 0;
+			for (var piece in data) {
+
+				var thisvalue = data[piece] / total;
+
+				ctx.beginPath();
+				ctx.moveTo(center[0], center[1]);
+				ctx.arc(
+					center[0],
+					center[1],
+					radius,
+					Math.PI * (- 0.5 + 2 * sofar),
+					Math.PI * (- 0.5 + 2 * (sofar + thisvalue)),
+					false
+				);
+
+				ctx.lineTo(center[0], center[1]);
+				ctx.closePath();
+				ctx.fillStyle = colors[piece];
+				ctx.fill();
+
+				sofar += thisvalue;
+			}
+
+
+		}
+
+		function getColor() {
+			var rgb = [];
+			for (var i = 0; i < 3; i++) {
+				rgb[i] = Math.round(100 * Math.random() + 155);
+			}
+			return 'rgb(' + rgb.join(',') + ')';
+		}
+
+		function goodFormat(word) {
+			var r = word.toLowerCase();
+			non_asciis = { 'a': '[àáâãäå]', 'ae': 'æ', 'c': 'ç', 'e': '[èéêë]', 'i': '[ìíîï]', 'n': 'ñ', 'o': '[òóôõö]', 'oe': 'œ', 'u': '[ùúûűü]', 'y': '[ýÿ]' };
+			for (i in non_asciis) { r = r.replace(new RegExp(non_asciis[i], 'g'), i); }
+			r = r.replace("-", ' ');
+			r = r.split(/\s+/).join('');
+
+			return r;
+
+		}
+
+		function searchRegion(param = "name") {
+			$("#listeSeRegion").text("");
+			if (param == "name") {
+				var reference = $("#regionSearchBar").val();
+				reference = goodFormat(reference);
+				listeRegion.forEach(async function (item) {
+					var nomEnPropre = goodFormat(item.nom);
+					if (nomEnPropre.includes(reference)) {
+						$("#listeSeRegion")
+							.append(`<a data-toggle="tab" href="#regionsDetails" onclick="getInfoFromRegion(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+
+					}
+				});
+			}
+			if (param == "sup") {
+				var number = $("#regionSearchBarSup").val();
+				listeRegion.forEach(async function (item) {
+					var habitReg = nbrHabRegionsDict[item.code];
+					if (number <= habitReg) {
+						$("#listeSeRegion")
+							.append(`<a data-toggle="tab" href="#regionsDetails" onclick="getInfoFromRegion(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+					}
+				});
+			}
+			if (param == "inf") {
+				var number = $("#regionSearchBarInf").val();
+				listeRegion.forEach(async function (item) {
+					var habitReg = nbrHabRegionsDict[item.code];
+					if (number >= habitReg) {
+						$("#listeSeRegion")
+							.append(`<a data-toggle="tab" href="#regionsDetails" onclick="getInfoFromRegion(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+					}
+				});
+			}
+
+
+		}
+
+
+		function searchDepar(param = "name") {
+			$("#listeSeDepart").text("");
+			if (param == "name") {
+				var reference = $("#departSearchBar").val();
+				reference = goodFormat(reference);
+				listeDepartement.forEach(async function (item) {
+					var nomEnPropre = goodFormat(item.nom);
+
+					if (nomEnPropre.includes(reference)) {
+						$("#listeSeDepart")
+							.append(`<a data-toggle="tab" href="#departDetails" onclick="getInfoFromDepartment(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+
+					}
+				});
+			}
+			if (param == "sup") {
+				var number = $("#departSearchBarSup").val();
+				listeDepartement.forEach(async function (item) {
+					var habitDep = nbrHabDepartDict[item.code];
+
+					if (number <= habitDep) {
+						$("#listeSeDepart")
+							.append(`<a data-toggle="tab" href="#departDetails" onclick="getInfoFromDepartment(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+					}
+				});
+			}
+			if (param == "inf") {
+				var number = $("#departSearchBarInf").val();
+				listeDepartement.forEach(async function (item) {
+					var habitDep = nbrHabDepartDict[item.code];
+					if (number >= habitDep) {
+						$("#listeSeDepart")
+							.append(`<a data-toggle="tab" href="#departDetails" onclick="getInfoFromDepartment(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+					}
+				});
+			}
+
+		}
+
+		function searchCommu(param = "name") {
+			$("#listeSeCommu").text("");
+			if (param == "name") {
+				var reference = $("#commuSearchBar").val();
+				reference = goodFormat(reference);
+				listeCommune.forEach(async function (item) {
+					var nomEnPropre = goodFormat(item.nom);
+					if (nomEnPropre.includes(reference)) {
+						var idClean = "i" + item.code;
+						$("#listeSeCommu")
+							.append(`<a data-toggle="tab" href="#communesDetails" onclick="getInfoFromCommune('${idClean}')" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+
+					}
+				});
+			}
+			if (param == "sup") {
+				var number = $("#commuSearchBarSup").val();
+				listeCommune.forEach(async function (item) {
+					var habitComu = item.population;
+					if (number <= habitComu) {
+						var idClean = "i" + item.code;
+						$("#listeSeCommu")
+							.append(`<a data-toggle="tab" href="#communesDetails" onclick="getInfoFromCommune('${idClean}')" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+					}
+				});
+
+			}
+			if (param == "inf") {
+				var number = $("#commuSearchBarInf").val();
+				listeCommune.forEach(async function (item) {
+					var habitComu = item.population;
+					if (number >= habitComu) {
+						var idClean = "i" + item.code;
+						$("#listeSeCommu")
+							.append(`<a data-toggle="tab" href="#communesDetails" onclick="getInfoFromCommune('${idClean}')" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+					}
+				});
+			}
+
+		}
+
+
+		$(document).ready(function () {
+			$.get("https://geo.api.gouv.fr/regions", function (data, status) {
+				listeRegion = data;
+
+			});
+
+			$.get("https://geo.api.gouv.fr/departements", function (data, status) {
+				listeDepartement = data;
+
+			});
+
+			$.get("https://geo.api.gouv.fr/communes", function (data, status) {
+				listeCommune = data;
+				okay = true;
+			});
+
+
+		});
+
+
+		function getNumOfHabDepFromReg(codeRegion) {
+			var numberHabitant = 0;
+			var numberDepartment = 0;
+			var departementsOfRegion = new Array();
+			$.get("https://geo.api.gouv.fr/regions/" + codeRegion + "/departements", function (data, status) {
+
+				if (nbrDepartRegionsDict[codeRegion] === undefined) {
+					nbrDepartRegionsDict[codeRegion] = 0;
+				}
+				departementsOfRegion = departementsOfRegion.concat(data);
+				departementsOfRegion.forEach(async function (item) {
+					getNumOfHabComFromDepart(item.code);
+					nbrDepartRegionsDict[codeRegion] += 1;
+				});
+			});
+
+		}
+
+
+		function getNumberOfHabitantTotal() {
+			var number = 0;
+			listeRegion.forEach(function (item) {
+				var results = getNumOfHabDepFromReg(item.code);
+				number += results[0];
+			});
+
+		}
+
+		function getNumOfHabComFromDepart(code) {
+			var numberHabitant = 0;
+			var numberCommunes = 0;
+			var communes = new Array();
+			$.get("https://geo.api.gouv.fr/departements/" + code + "/communes", function (data, status) {
+				communes = data;
+				communes.forEach(async function (item2) {
+					if (nbrCommuDepartDict[code] === undefined) {
+						nbrCommuDepartDict[code] = 0;
+					}
+					if (nbrHabDepartDict[code] === undefined) {
+						nbrHabDepartDict[code] = 0;
+					}
+
+					nbrCommuDepartDict[code] += 1;
+					nbrHabDepartDict[code] += item2.population;
+
+					if (nbrHabRegionsDict[item2.codeRegion] === undefined) {
+						nbrHabRegionsDict[item2.codeRegion] = 0;
+					}
+
+					nbrHabRegionsDict[item2.codeRegion] += item2.population;
+
+
+				});
+			});
+		}
+
+		function getInfoFromRegion(code) {
+			var nomRegion;
+			var codeRegion = code > 9 ? "" + code : "0" + code;
+			var nbrDepartement;
+			var nbrHabitant;
+			var listeDepart;
+			$.get("https://geo.api.gouv.fr/regions/" + codeRegion, function (data, status) {
+				nomRegion = data["nom"];
+				$("#nameRegionTitle").text(nomRegion);
+				$("#numRegionRegion").text(codeRegion);
+
+			});
+
+			$.get("https://geo.api.gouv.fr/regions/" + codeRegion + "/departements", function (data, status) {
+				$("#listeDepartRegion")
+					.text("");
+				listeDepart = data;
+				listeDepart.forEach(async function (item) {
+					$("#listeDepartRegion")
+						.append(`<a data-toggle="tab" href="#departDetails" onclick="getInfoFromDepartment(${item.code})" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+
+				});
+			});
+			nbrHabitant = nbrHabRegionsDict[codeRegion];
+			nbrDepartement = nbrDepartRegionsDict[codeRegion];
+			$("#nbrDepart").text(numberWithSpaces(nbrDepartement));
+			$("#nbrHabitantRegion").text(numberWithSpaces(nbrHabitant));
+
+
+
+		}
+
+
+		function getInfoFromCommune(code) {
+			var nomRegion;
+			var codeRegion;
+			var nomCommune;
+			var codeCommune = code.replace('i', '');
+			codeCommune = codeCommune.toLocaleString('en-US', { minimumIntegerDigits: 5, useGrouping: false })
+
+			var nbrHabitant;
+			var nomDepartement;
+			var codeDepartement;
+			var codePostaux;
+
+
+			$.get("https://geo.api.gouv.fr/communes/" + codeCommune, function (data, status) {
+				nomCommune = data["nom"];
+				nbrHabitant = data["population"];
+				codeDepartement = data["codeDepartement"];
+				codePostaux = data["codesPostaux"];
+				codeRegion = data["codeRegion"];
+
+
+				$("#nameCommuTitle").text(nomCommune);
+				$("#codePostauxCommu").text("");
+				codePostaux.forEach(function (item) {
+					$("#codePostauxCommu").append(item + " ");
+				});
+				$("#numDepartCommu").text(codeDepartement);
+				$("#numRegionCommu").text(codeRegion);
+				$("#nbrHabitantCommu").text(numberWithSpaces(nbrHabitant));
+
+				$.get("https://geo.api.gouv.fr/departements/" + codeDepartement, function (data, status) {
+					nomDepartement = data["nom"];
+					$("#nameDepartCommu").text(nomDepartement);
+				});
+
+				$.get("https://geo.api.gouv.fr/regions/" + codeRegion, function (data, status) {
+					nomRegion = data["nom"];
+					$("#nameRegionCommu").text(nomRegion);
+				});
+			});
+
+
+
+		}
+
+		function getInfoFromDepartment(code) {
+			var nomDepartement;
+			var codeDepartement = code > 9 ? "" + code : "0" + code;
+			var nbrHabitant;
+			var nbrCommunes;
+			var listeCommune;
+
+			$.get("https://geo.api.gouv.fr/departements/" + codeDepartement, function (data, status) {
+				nomDepartement = data["nom"];
+				$("#nameDeparTitle")
+					.text(nomDepartement);
+				$("#numDepartDepart")
+					.text(codeDepartement);
+			});
+
+			$.get("https://geo.api.gouv.fr/departements/" + codeDepartement + "/communes", function (data, status) {
+				$("#listeCommuDepart")
+					.text("");
+				listeCommune = data;
+				listeCommune.forEach(async function (item) {
+					var idClean = "i" + item.code;
+					$("#listeCommuDepart")
+						.append(`<a data-toggle="tab" href="#communesDetails" onclick="getInfoFromCommune('${idClean}')" class="list-group-item list-group-item-action ">${item.nom}</a>`);
+
+				});
+			});
+			nbrHabitant = nbrHabDepartDict[codeDepartement];
+			nbrCommunes = nbrCommuDepartDict[codeDepartement];
+			$("#nbrCommunesDeparts").text(numberWithSpaces(nbrCommunes));
+			$("#nbrHabitDepart").text(numberWithSpaces(nbrHabitant));
+
+
+
+		}
+
+		/*var checkExist = setInterval(function() {			       		 			  
+		   if (okay) {			       		 			  
+														  
+			  clearInterval(checkExist);			       		 			  
+			  getNumOfHabDepFromReg("03");			       		 			  
+		   }			       		 			  
+		}, 100);*/
+	</script>
+
+
+
+
+
+
+</body>
+
+</html>

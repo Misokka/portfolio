@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jérémy Caron-Labalette</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="icon" type="image/gif" href="../public/assets/j.png" />
+
+
+    <script defer type="text/javascript" src="scripts/animation.js"></script>
+    <script defer type="text/javascript" src="scripts/script.js"></script>
+
+</head>
+
+<body>
+    <canvas id="animation_bg" style="position:absolute; height: 100%;width: 100%;"></canvas>
+    <!-- Navigation bar -->
+
+    <nav class="navbar is-dark is-fixed-top">
+        <div class="navbar-brand">
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#about" onclick="closeMenu()">
+                    <span class="icon">
+                        <i class="fas fa-info"></i>
+                    </span>
+                    <span>A propos</span>
+                </a>
+                <a class="navbar-item" href="#skills" onclick="closeMenu()">
+                    <span class="icon">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                    <span>Mes compétences</span>
+                </a>
+                <a class="navbar-item" href="#Portfolio" onclick="closeMenu()">
+                    <span class="icon">
+                        <i class="fas fa-th-list"></i>
+                    </span>
+                    <span>Projets</span>
+                </a>
+                <a class="navbar-item" href="#company" onclick="closeMenu()">
+                    <span class="icon">
+                        <i class="fa fa-building"></i>
+                    </span>
+                    <span>Entreprise</span>
+                </a>
+                <a class="navbar-item" href="#resume" onclick="closeMenu()">
+                    <span class="icon">
+                      <i class="fas fa-file-alt"></i>
+                    </span>
+                    <span>Curriculum</span>
+                </a>
+                <a class="navbar-item" onclick="toggleNightMod()">
+                    <span class="icon">
+                        <i id="nightIcon" class="fas fa-moon"></i>
+                    </span>
+                    <span id="nightButtonText">Mode nuit</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!--Header-->
+    <section class="hero is-fullheight is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1"> Jérémy Caron-Labalette </h1>
+                <h2 class="subtitle is-2"> Développeur Informatique </h2>
+            </div>
+        </div>
+    </section>
+    <!--About-->
+    <section class="section" id="about">
+        <!-- Title -->
+        <div class="section-heading">
+            <div class="center_text_heading">
+                <h3 class="title is-2">A propos</h3>
+                <h4 class="subtitle is-5">Etudiant en alternance à Promeo Compiégne</h4>
+            </div>
+        </br>
+            <div class="columns is-centered">
+                <!-- Profile picture -->
+                <div class="column is-narrow">
+                    <figure class="image is-256x256">
+                        <img class="is-rounded" id="jeremy" src="../public/assets/moi2.jpeg" style="border-radius: 100%; object-fit: cover;">
+                    </figure>
+                </div>
+            </div>
+        </body>
+        </div>
+        <div class="columns is-centered" id="margin-block">
+            <div class="column is half">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <p>
+                                Je suis étudiant en alternance à Promeo Compiegne, en BTS SIO SLAM. 
+                                Dès mon enfance, les interfaces homme-machine telles que les sites web et les logiciels m'ont captivé, 
+                                et je me questionnais fréquemment sur le fonctionnement des interactions sur internet. 
+                                C'est ainsi que j'ai choisi de me diriger vers le domaine de l'informatique.
+                            </p>
+
+                            <table class="table-profile">
+                                <tr>
+                                    <th colspan="1"></th>
+                                    <th colspan="2"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                        <div class="buttons is-centered">
+                            <a href="https://github.com/Misokka" target="_blank" class="button is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>Github</span>
+                            </a>
+                            <a target="_blank"
+                                href="https://www.linkedin.com/in/jeremy-caron-labalette-265560217/?locale=en_US"
+                                class="button is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:jeremy.caron.labalette@gmail.com" class="button is-dark">
+                                <span class="icon">
+                                    <i class="fas fab fa-envelope"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section class="section" id="skills">
+        <div class="section-heading">
+            <h3 class="title is-2">Compétences</h3>
+            <h4 class="subtitle is-5">Voici les technologies que je connais</h4>
+        </div>
+        <div class="container" id="reactSkills">
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="box">
+                        <div class="content">
+                            <h4 class="title is-3 custom-tags"><img src="../public/assets/symfony.png" id="symfony"
+                                    height="35" width="35"> Symfony</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="box">
+                        <div class="content">
+                            <h4 class="title is-3 custom-tags">
+
+                                <svg viewBox="0 0 128 128" height="2rem" width="2rem">
+                                    <linearGradient id="python-original-a" gradientUnits="userSpaceOnUse" x1="70.252"
+                                        y1="1237.476" x2="170.659" y2="1151.089"
+                                        gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
+                                        <stop offset="0" stop-color="#5A9FD4"></stop>
+                                        <stop offset="1" stop-color="#306998"></stop>
+                                    </linearGradient>
+                                    <linearGradient id="python-original-b" gradientUnits="userSpaceOnUse" x1="209.474"
+                                        y1="1098.811" x2="173.62" y2="1149.537"
+                                        gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)">
+                                        <stop offset="0" stop-color="#FFD43B"></stop>
+                                        <stop offset="1" stop-color="#FFE873"></stop>
+                                    </linearGradient>
+                                    <path fill="url(#python-original-a)"
+                                        d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"
+                                        transform="translate(0 10.26)"></path>
+                                    <path fill="url(#python-original-b)"
+                                        d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"
+                                        transform="translate(0 10.26)"></path>
+                                    <radialGradient id="python-original-c" cx="1825.678" cy="444.45" r="26.743"
+                                        gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0" stop-color="#B8B8B8" stop-opacity=".498"></stop>
+                                        <stop offset="1" stop-color="#7F7F7F" stop-opacity="0"></stop>
+                                    </radialGradient>
+                                    <path opacity=".444" fill="url(#python-original-c)"
+                                        d="M97.309 119.597c0 3.543-14.816 6.416-33.091 6.416-18.276 0-33.092-2.873-33.092-6.416 0-3.544 14.815-6.417 33.092-6.417 18.275 0 33.091 2.872 33.091 6.417z">
+                                    </path>
+                                </svg>
+
+                                Python
+                            </h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="box">
+                        <div class="content">
+                            <h4 class="title is-3 custom-tags">
+
+                                <svg viewBox="0 0 128 128" height="2rem" width="2rem">
+                                    <path fill="#E44D26"
+                                        d="M27.854 116.354l-8.043-90.211h88.378l-8.051 90.197-36.192 10.033z"></path>
+                                    <path fill="#F16529" d="M64 118.704l29.244-8.108 6.881-77.076H64z"></path>
+                                    <path fill="#EBEBEB"
+                                        d="M64 66.978H49.359l-1.01-11.331H64V44.583H36.257l.264 2.969 2.72 30.489H64zm0 28.733l-.049.013-12.321-3.328-.788-8.823H39.735l1.55 17.372 22.664 6.292.051-.015z">
+                                    </path>
+                                    <path
+                                        d="M28.034 1.627h5.622v5.556H38.8V1.627h5.623v16.822H38.8v-5.633h-5.143v5.633h-5.623V1.627zm23.782 5.579h-4.95V1.627h15.525v5.579h-4.952v11.243h-5.623V7.206zm13.039-5.579h5.862l3.607 5.911 3.603-5.911h5.865v16.822h-5.601v-8.338l-3.867 5.981h-.098l-3.87-5.981v8.338h-5.502V1.627zm21.736 0h5.624v11.262h7.907v5.561H86.591V1.627z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M63.962 66.978v11.063h13.624L76.302 92.39l-12.34 3.331v11.51l22.682-6.286.166-1.87 2.6-29.127.27-2.97h-2.982zm0-22.395v11.064h26.725l.221-2.487.505-5.608.265-2.969z">
+                                    </path>
+                                </svg>
+
+                                <svg viewBox="0 0 128 128" height="2rem" width="2rem">
+                                    <path fill="#131313"
+                                        d="M89.234 5.856H81.85l7.679 8.333v3.967H73.713v-4.645h7.678l-7.678-8.333V1.207h15.521v4.649zm-18.657 0h-7.384l7.679 8.333v3.967H55.055v-4.645h7.679l-7.679-8.333V1.207h15.522v4.649zm-18.474.19h-7.968v7.271h7.968v4.839H38.471V1.207h13.632v4.839z">
+                                    </path>
+                                    <path fill="#1572B6"
+                                        d="M27.613 116.706l-8.097-90.813h88.967l-8.104 90.798-36.434 10.102-36.332-10.087z">
+                                    </path>
+                                    <path fill="#33A9DC" d="M64.001 119.072l29.439-8.162 6.926-77.591H64.001v85.753z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M64 66.22h14.738l1.019-11.405H64V43.677h27.929l-.267 2.988-2.737 30.692H64V66.22z">
+                                    </path>
+                                    <path fill="#EBEBEB"
+                                        d="M64.067 95.146l-.049.014-12.404-3.35-.794-8.883H39.641l1.561 17.488 22.814 6.333.052-.015V95.146z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M77.792 76.886L76.45 91.802l-12.422 3.353v11.588l22.833-6.328.168-1.882 1.938-21.647H77.792z">
+                                    </path>
+                                    <path fill="#EBEBEB"
+                                        d="M64.039 43.677v11.137H37.136l-.224-2.503-.507-5.646-.267-2.988h27.901zM64 66.221v11.138H51.753l-.223-2.503-.508-5.647-.267-2.988H64z">
+                                    </path>
+                                </svg>
+
+
+                                <svg viewBox="0 0 128 128" height="2rem" width="2rem">
+                                    <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z"></path>
+                                    <path fill="#323330"
+                                        d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z">
+                                    </path>
+                                </svg>
+
+
+                                Développement web
+                            </h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="box">
+                        <div class="content">
+                            <div id="width-container">
+                                <div id="container-php">
+                                    <div id="img-container-php">
+                                        <img src="../public/assets/php.png" id="php" height="35" width="35">
+                                    </div>
+                                    <div>
+                                        <h4 class="title is-3 custom-tags">PHP</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="Portfolio">
+        <div class="container">
+            <div class="section-heading">
+                <h3 class="title is-2">Projets</h3>
+                <h4 class="subtitle is-5">Parce qu'une image vaut mille mots, une démonstration de projet vaut plus
+                    qu'un simple indicateur de niveau. Laissez moi vous présenter mes réalisations.
+                </h4>
+            </div>
+            <br>
+
+            <div class="container portfolio-container" id="reactProjects">
+                <div class="columns is-multiline">
+                    <div class="column is-6">
+
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    <span>Le Barman Vous Recrute</span>
+
+                                </p>
+                            </header>
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="../public/assets/lbvrimg.png" alt="modal-cards template screenshot">
+                                </figure>
+                            </div>
+                            <footer class="card-footer">
+
+                                <a href="../public/lbvr.html" class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fab far fa-window-maximize"></i>
+                                    </span>
+                                    <span>Voir</span>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    <span>Shopping List</span>
+
+                                </p>
+                            </header>
+                            <div class="card-image">    
+                                <figure class="image">
+                                    <img src="../public/assets/shoppinglist1.png" width="5" height="1"
+                                        alt="modal-cards template screenshot">
+                                </figure>
+                            </div>
+                            <footer class="card-footer">
+
+                                <a href="../public/shoppinglist.html" class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fab far fa-window-maximize"></i>
+                                    </span>
+                                    <span>Voir</span>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    <span>API d'authentification Ionic</span>
+
+                                </p>
+                            </header>
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="../public/assets/auth-api1.PNG" alt="modal-cards template screenshot">
+                                </figure>
+                            </div>
+                            <footer class="card-footer">
+
+                                <a href="../public/auth-api.html" class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fab far fa-window-maximize"></i>
+                                    </span>
+                                    <span>Voir</span>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    <span>Flotte</span>
+
+                                </p>
+                            </header>
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="../public/assets/flotte1.png" alt="modal-cards template screenshot">
+                                </figure>
+                            </div>
+                            <footer class="card-footer">
+
+                                <a href="../public/flotte.html" class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fab far fa-window-maximize"></i>
+                                    </span>
+                                    <span>Voir</span>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+
+                    <div class="column is-6">
+
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    <span>Géographie de la France</span>
+
+                                </p>
+                            </header>
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="../public/assets/france.png" alt="modal-cards template screenshot">
+                                </figure>
+                            </div>
+                            <footer class="card-footer">
+
+                                <a href="../public/france1.html" class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fab far fa-window-maximize"></i>
+                                    </span>
+                                    <span>Voir</span>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    <span>Pousse Pousse</span>
+
+                                </p>
+                            </header>
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="../public/assets/poussepousse.PNG" alt="modal-cards template screenshot">
+                                </figure>
+                            </div>
+                            <footer class="card-footer">
+
+                                <a href="../public/poussepousse.html" class="card-footer-item">
+                                    <span class="icon">
+                                        <i class="fab far fa-window-maximize"></i>
+                                    </span>
+                                    <span>Voir</span>
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="company">
+        <div class="container">
+            <div class="section-heading">
+                <h3 class="title is-2">Mon Entreprise</h3>
+                <h4 class="subtitle is-5">DESMAREZ SA
+                </h4>
+                <div class="center">
+                    <figure class="image is-256x256">
+                        <img id="imgdesmarez" id="jeremy" src="../public/assets/desmarez.png">
+                    </figure>
+                </div>
+            </br>
+                <div class="content">
+                    <p>
+                        L’entreprise Desmarez SA
+                        Société familiale, avec des valeurs, au service de l’homme depuis plus de 40 ans, distributeur
+                        des produits Motorola
+                        et TAIT dans le domaine des radiocommunications professionnelles.
+
+                        Leur expertise et leur savoir-faire sont reconnus dans le monde industriel, l’administration
+                        (Polices municipales,
+                        ministères, Communautés d’Agglomération, Conseils Généraux..), les grandes sociétés de services,
+                        les centres
+                        commerciaux.
+                    </p>
+                    <h3>Domaines de compétence</h3>
+                    <p>
+                        Qualifiés en tant que « Licence Developer » et « Application Partner » par Motorola, notre
+                        service R&D développe des applicatifs spécifiques directement sur les terminaux afin de répondre
+                        aux plus juste aux demandes de nos clients.
+                        </br>
+                        </br>
+                        <!-- <div class="content">
+                            <ul>
+                                <li> Radio numérique GPS avec géolocalisation</li>
+                            </ul>
+                        </div> -->
+                        ⇾ Radio numérique GPS avec géolocalisation
+                        </br>
+                        ⇾ Talky-walky (PTI, Atex, submersibles …), bases, mobiles, relais
+                        </br>
+                        ⇾ Accessoires radios
+                        </br>
+                        ⇾ Protection de travailleur isolé (système homme mort)
+                        </br>
+                        ⇾ Etude de couverture radio-électrique
+                        </br>
+                        ⇾ GSM ou BIP avec PTI (protection Travailleur Isolé)
+                        </br>
+                        ⇾ Bornes d’appels
+                        </br>
+                        ⇾ Système rondier (avec ou sans gestion de ronde)
+                        </br>
+                        ⇾ Liaisons haut débit longue distance (lien téléphonique sous IP, sans câblage, sans abonnement)
+                    </p>
+                    <h3>Quelques chiffres</h3>
+                    <p>➤ Date de création : 1950</p> 
+                    <p>➤ Nombres d'employé : 30 salariés</p>
+                    <p>➤ Chiffre d'affaires : 9 491 000.00 €</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="resume">
+        <div class="section-heading">
+            <h3 class="title is-2">CV</h3>
+            <h4 class="subtitle is-5">Ci-joint mon CV</h4>
+            <a href="../public/assets/CV JEREMY CARON.pdf" target="_blank" class="button is-dark">
+                <span class="icon">
+                    <i class="fas fa-file-alt"></i>
+                </span>
+                <span>Télécharger le CV de Jérémy Caron-Labalette</span>
+            </a>
+        </div>
+    </section>
+    <section class="section" id="resume">
+        <div class="section-heading">
+            <h3 class="title is-2">Tableau de synthèse</h3>
+            <h4 class="subtitle is-5">Ci-joint mon Tableau de synthèse</h4>
+            <a href="../public/assets/Tableau_de_synthese_Epreuve_E4_BTS_SIO_2023.xlsx" target="_blank" class="button is-dark">
+                <span class="icon">
+                    <i class="fas fa-file-alt"></i>
+                </span>
+                <span>Télécharger le tableau de synthèse de Jérémy Caron-Labalette</span>
+            </a>
+        </div>
+    </section>
+</body>
+
+<footer class="footer is-align-content-center">
+    <div class="content has-text-centered">
+        <p>
+            © Jérémy Caron-Labalette ©
+        </p>
+    </div>
+</footer>
+
+</html>
